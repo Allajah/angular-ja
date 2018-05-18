@@ -1,28 +1,28 @@
-# Style Guide
+# スタイルガイド
 
-Looking for an opinionated guide to Angular syntax, conventions, and application structure?
-Step right in!
-This style guide presents preferred conventions and, as importantly, explains why.
 
+Angularのシンタックス、慣習、アプリケーション構造についての揺るぎないガイドラインをお探しですか？
+こちらを見てください！
+このスタイルガイドでは好ましい慣習を示し、なぜそれが重要なのかを説明します。
 
 
 {@a toc}
 
 ## Style vocabulary
 
-Each guideline describes either a good or bad practice, and all have a consistent presentation.
 
-The wording of each guideline indicates how strong the recommendation is.
+それぞれのガイドラインではいいプラクティスなのか悪いプラクティスなのか解説しており、すべてが一貫した提案を示しています。
 
+各ガイドラインの表現は、その推奨がどの程度の強さなのかを示しています。
 
 <div class="s-rule do">
 
 
 
-**Do** is one that should always be followed.
-_Always_ might be a bit too strong of a word.
-Guidelines that literally should always be followed are extremely rare.
-On the other hand, you need a really unusual case for breaking a *Do* guideline.
+**Do** は常に従うべき項目です。
+「常に」は少し強すぎる表現かもしれません。
+文字通り必ず従わなければならないガイドラインは非常に稀です。
+一方、*Do*のガイドラインを破ってよいのは本当に異例なケースにおいてのみです。
 
 
 </div>
@@ -33,8 +33,8 @@ On the other hand, you need a really unusual case for breaking a *Do* guideline.
 
 
 
-**Consider** guidelines should generally be followed.
-If you fully understand the meaning behind the guideline and have a good reason to deviate, then do so. Please strive to be consistent.
+**Consider** は一般的に従うべき項目です。
+もしあなたがそのガイドラインの背景を十分理解していて、あえて逸脱する正当な理由があれば、そうしてください。一貫したものになるよう努力してください。
 
 
 </div>
@@ -45,7 +45,7 @@ If you fully understand the meaning behind the guideline and have a good reason 
 
 
 
-**Avoid** indicates something you should almost never do. Code examples to *avoid* have an unmistakeable red header.
+**Avoid**はやらないほうがいいということを示しています。*avoid*のコード例には見間違えようのない赤いヘッダーが置かれています。
 
 
 </div>
@@ -56,7 +56,7 @@ If you fully understand the meaning behind the guideline and have a good reason 
 
 
 
-**Why?** gives reasons for following the previous recommendations.
+**Why?** は前述されている推奨に従うべき理由を示しています。
 
 
 </div>
@@ -64,38 +64,33 @@ If you fully understand the meaning behind the guideline and have a good reason 
 
 
 
-## File structure conventions
+## ファイル構造についての慣習
 
-Some code examples display a file that has one or more similarly named companion files.
-For example, `hero.component.ts` and `hero.component.html`.
+いくつかのコード例は1つ以上の同様に名付けられた一連のファイルを表示しています。
+例を上げると、`hero.component.ts`と`hero.component.html`です。
 
-The guideline uses the shortcut `hero.component.ts|html|css|spec` to represent those various files. Using this shortcut makes this guide's file structures easier to read and more terse.
-
+ガイドラインではそれら複数のファイルを表すために `hero.component.ts|html|css|spec` というショートカットを使用します。
 
 
 {@a single-responsibility}
 
 
-## Single responsibility
+## 単一責任
 
-Apply the
-<a href="https://wikipedia.org/wiki/Single_responsibility_principle"><i>single responsibility principle</i> (SRP)</a>
-to all components, services, and other symbols.
-This helps make the app cleaner, easier to read and maintain, and more testable.
-
+<a href="https://wikipedia.org/wiki/Single_responsibility_principle"><i>単一責任の原則</i> (SRP)</a>をすべてのコンポーネント、サービス、その他のシンボルに適用してください。
+これはアプリケーションをクリーンにし、読みやすくメンテナンスしやすくし、テスト可能性を高めます。
 {@a 01-01}
 
-### Rule of One
+### 1のルール
 
-#### Style 01-01
+#### スタイル 01-01
 
 
 <div class="s-rule do">
 
 
 
-**Do** define one thing, such as a service or component, per file.
-
+**Do** サービスまたはコンポーネントなど、1つのファイルに1つのものを定義してください。
 
 </div>
 
@@ -105,20 +100,7 @@ This helps make the app cleaner, easier to read and maintain, and more testable.
 
 
 
-**Consider** limiting files to 400 lines of code.
-
-
-</div>
-
-
-
-<div class="s-why">
-
-
-
-**Why?** One component per file makes it far easier to read, maintain, and avoid
-collisions with teams in source control.
-
+**Consider** 1ファイルを400行のコードに制限しましょう。
 
 </div>
 
@@ -128,8 +110,16 @@ collisions with teams in source control.
 
 
 
-**Why?** One component per file avoids hidden bugs that often arise when combining components in a file where they may share variables, create unwanted closures, or unwanted coupling with dependencies.
+**Why?** 1つのファイルに1つのコンポーネントは読みやすくメンテナンスしやすくし、チームソース管理における衝突を避けやすくします。
 
+</div>
+
+
+
+<div class="s-why">
+
+
+**Why?** 1つのファイルに1つのコンポーネントがあるため、変数を共有したり不要なクロージャーを作ったり依存関係との不要な結合をする可能性がある、ファイル内のコンポーネントを結びつけるときによく発生する、隠れたバグを回避できます。
 
 </div>
 
@@ -139,7 +129,7 @@ collisions with teams in source control.
 
 
 
-**Why?** A single component can be the default export for its file which facilitates lazy loading with the router.
+**Why?** 単一のコンポーネントをそのファイルのdefault exportとすることができ、ルーターでの遅延ロードを用意にします。
 
 </div>
 
